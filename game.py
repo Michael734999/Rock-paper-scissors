@@ -3,6 +3,7 @@ import time
 
 moves = ['rock', 'paper', 'scissors']
 
+
 def print_pause(msg):
     print(msg)
     time.sleep(2)
@@ -27,20 +28,23 @@ class Player:
         self.my_move = my_move
         self.their_move = their_move
 
+
 class RandomPlayer(Player):
     def move(self):
         return random.choice(moves)
 
+
 class ReflectPlayer(Player):
     def move(self):
-        if self.my_move == None:
+        if self.my_move is None:
             return random.choice(moves)
         else:
             return self.their_move
 
+
 class CyclePlayer(Player):
     def move(self):
-        if self.my_move == None:
+        if self.my_move is None:
             return random.choice(moves)
         elif self.my_move == moves[0]:
             return moves[1]
@@ -48,6 +52,7 @@ class CyclePlayer(Player):
             return moves[2]
         else:
             return moves[0]
+
 
 class HumanPlayer(Player):
     def move(self):
@@ -62,7 +67,6 @@ class HumanPlayer(Player):
                 return moves[2]
             else:
                 print("Please select rock, paper or scissors.")
-
 
 
 def beats(one, two):
@@ -91,10 +95,11 @@ class Game:
         elif beats(move2, move1):
             self.p2_score += 1
             print("Player 2 wins!")
-        else: #(move1 == move2)
+        else:
             print("It's a tie!")
 
-        print(f"Score:\nPlayer 1: {self.p1_score}\tPlayer 2: {self.p2_score}\n")
+        print(f"Score:\nPlayer 1: {self.p1_score}"
+              f"\tPlayer 2: {self.p2_score}\n")
 
     def play_game(self):
         print("Game start!\n")
@@ -110,6 +115,7 @@ class Game:
         else:
             print("\t***IT'S A DRAW!!!***")
         print("Game over!")
+
 
 strategy = (RandomPlayer(), ReflectPlayer(), CyclePlayer())
 randomP = random.choice(strategy)
