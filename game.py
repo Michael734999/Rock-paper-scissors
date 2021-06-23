@@ -114,6 +114,8 @@ class Game:
             print("\t***PLAYER 2 WINS THE GAME!!!***")
         else:
             print("\t***IT'S A DRAW!!!***")
+        print(f"Final Score:\nPlayer 1: {self.p1_score}"
+              f"\tPlayer 2: {self.p2_score}\n")
         print("Game over!")
 
 
